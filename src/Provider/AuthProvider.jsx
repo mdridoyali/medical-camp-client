@@ -11,7 +11,7 @@ import {
 } from "firebase/auth";
 
 import auth from "../../firebase.config";
-import useAxiosPublic from "../hooks/useAxiosPublic";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
 
 
 
