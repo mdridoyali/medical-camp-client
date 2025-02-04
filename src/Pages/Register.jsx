@@ -163,8 +163,8 @@ const Register = () => {
                                 </span>
                             </div>
                             <div className="form-control">
-                                    <LoadCanvasTemplate />
-                                <input onBlur={handleValidateCaptcha} type="text" name="captcha" placeholder="type the captcha above"  className="border w-full p-1 " />
+                                <LoadCanvasTemplate />
+                                <input onBlur={handleValidateCaptcha} type="text" name="captcha" placeholder="type the captcha above" className="border w-full p-1 " />
 
                             </div>
                             {/* <LoadCanvasTemplate />

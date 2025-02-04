@@ -22,7 +22,7 @@ const ManageRegisteredCamp = () => {
     if (!Array.isArray(payment)) {
         console.error('Unexpected data type for payment:', typeof payment);
         return null;
-      }
+    }
 
     const handleDelete = (id) => {
         console.log(id)
@@ -103,7 +103,7 @@ const ManageRegisteredCamp = () => {
                                     </>
                                 }</td>
 
-                                <td>{item.paymentStatus === 'paid' ? <button onClick={() => handleDelete(item._id)} className="btn btn-sm bg-orange-500 text-white ">Cancel</button> : <button disabled className="btn btn-sm bg-lime-500 ">Cancel</button>}</td>
+                                <td>{item.paymentStatus === 'paid' ? <button disabled className="btn btn-sm bg-lime-500 ">Cancel</button>: <button onClick={() => handleDelete(item._id)} className="btn btn-sm bg-orange-500 text-white ">Cancel</button> }</td>
                             </tr>
                         ))}
                     </tbody>

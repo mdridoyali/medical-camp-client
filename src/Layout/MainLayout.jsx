@@ -5,10 +5,13 @@ import { Link, NavLink } from "react-router-dom";
 
 import { useState } from "react";
 import useAuth from "../Hooks/useAuth";
+import useUser from "../Hooks/useUser";
 
 const MainLayout = ({ children }) => {
   const { user, logOutUser } = useAuth();
   // console.log(user)
+  const [userRole] = useUser()
+  console.log(userRole)
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -77,8 +80,11 @@ const MainLayout = ({ children }) => {
                 >
                   Available Camp
                 </NavLink>
+
+                {/* Dashboard route */}
+                {userRole?.role == 'participant' &&
                 <NavLink
-                  to={"/dashboard"}
+                  to={"/dashboard/participant-profile"}
                   className={({ isActive }) =>
                     isActive
                       ? "btn  bg-lime-600 btn-sm text-white"
@@ -87,6 +93,33 @@ const MainLayout = ({ children }) => {
                 >
                   Dashboard
                 </NavLink>
+                }
+
+                {userRole?.role == 'organizer' &&
+                <NavLink
+                  to={"/dashboard/organizer-profile"}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "btn  bg-lime-600 btn-sm text-white"
+                      : "btn btn-ghost btn-sm "
+                  }
+                >
+                  Dashboard
+                </NavLink>
+                }
+                {userRole?.role == 'health professional' &&
+                <NavLink
+                  to={"/dashboard/health-professional-profile"}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "btn  bg-lime-600 btn-sm text-white"
+                      : "btn btn-ghost btn-sm "
+                  }
+                >
+                  Dashboard
+                </NavLink>
+                }
+
                 <NavLink
                   to={"/contact-us"}
                   className={({ isActive }) =>
@@ -207,7 +240,7 @@ const MainLayout = ({ children }) => {
             >
               <FaHome />
               Home
-            </NavLink> 
+            </NavLink>
             <NavLink
               onClick={closeSidebar}
               to={"/available-camp"}
@@ -219,7 +252,7 @@ const MainLayout = ({ children }) => {
             >
               <FaHome />
               Available Camp
-            </NavLink> 
+            </NavLink>
             <NavLink
               onClick={closeSidebar}
               to={"/dashboard"}
@@ -231,7 +264,7 @@ const MainLayout = ({ children }) => {
             >
               <FaHome />
               Dashboard
-            </NavLink> 
+            </NavLink>
             <NavLink
               onClick={closeSidebar}
               to={"/contact-us"}
@@ -243,8 +276,8 @@ const MainLayout = ({ children }) => {
             >
               <FaHome />
               Contact Us
-            </NavLink> 
-            
+            </NavLink>
+
           </div>
         </div>
       </div>
