@@ -8,17 +8,13 @@ import { Helmet } from "react-helmet-async";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 // import "@material-tailwind/react/tailwind.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useAuth from "../Hooks/useAuth";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 // import SocialLogin from "../Components/SocialLogin";
 import Swal from "sweetalert2";
 import { ThreeDots } from "react-loader-spinner";
-import {
-    loadCaptchaEnginge,
-    LoadCanvasTemplate,
-    validateCaptcha,
-} from "react-simple-captcha";
+import ReCAPTCHA from "react-google-recaptcha";
 
 
 
@@ -29,12 +25,7 @@ const Register = () => {
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate();
     const location = useLocation();
-    const [disabled, setDisabled] = useState(true);
-
-
-    useEffect(() => {
-        loadCaptchaEnginge(4);
-    }, []);
+    const [captchaVerified, setCaptchaVerified] = useState(false);
 
 
     const handleRegister = async (e) => {
@@ -45,7 +36,6 @@ const Register = () => {
         const email = form.email.value;
         const role = form.role.value;
         const password = form.password.value;
-        console.log(name, email, password, role);
         const inputFile = document.querySelector('input[type="file"]');
         const photo = inputFile.files[0];
         const formData = new FormData();
@@ -56,7 +46,6 @@ const Register = () => {
                 'content-type': ' multipart/form-data'
             }
         })
-        console.log(res.data.data.display_url)
 
         const passwordRegex =
             /^(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!.])[A-Za-z\d@#$%^&+=!.]{6,20}$/;
@@ -101,16 +90,11 @@ const Register = () => {
         }
     };
 
-    const handleValidateCaptcha = (e) => {
-        const user_captcha_value = e.target.value;
-        if (validateCaptcha(user_captcha_value)) {
-            setDisabled(false);
-            // console.log(disabled);
+    const handleCaptcha = (value) => {
+        if (value) {
+            setCaptchaVerified(true);
         }
-        else {
-            setDisabled(true)
-        }
-    }
+    };
 
 
 
@@ -142,10 +126,10 @@ const Register = () => {
                                 className="border p-1 "
                                 required
                             >
-                                <option disabled>Role</option>
-                                <option>participant</option>
-                                <option>health professional</option>
-                                <option>organizer</option>
+                                <option disabled selected>Role</option>
+                                <option>Organizer</option>
+                                <option>Participant</option>
+                                <option>Health professional</option>
                             </select>
                             <div className="relative ">
                                 <input
@@ -164,34 +148,17 @@ const Register = () => {
                                 </span>
                             </div>
                             <div className="form-control">
-                                <LoadCanvasTemplate />
-                                <input onBlur={handleValidateCaptcha} type="text" name="captcha" placeholder="type the captcha above" className="border w-full p-1 " />
-
-                            </div>
-                            {/* <LoadCanvasTemplate />
-                            <div className="relative flex w-full max-w-[24rem]">
-                                <input
-                                    ref={captchaRef}
-                                    name="captcha"
-                                    type="text"
-                                    placeholder="Captcha Code"
-                                    className="border w-full rounded p-1"
+                                <ReCAPTCHA
+                                    sitekey="6LesgswqAAAAAMWj7ufERroz8rTcuRMisvHsvBDa"
+                                    onChange={handleCaptcha}
                                 />
-                                <button
-                                    onClick={handleValidateCaptcha}
-                                    size="sm"
-                                    //   color={email ? "gray" : "blue-gray"}
-                                    //   disabled={!email}
-                                    className="!absolute right-0 top-0 bg-black text-white  btn-sm btn rounded"
-                                >
-                                    Invite
-                                </button>
-                            </div> */}
+                            </div>
                         </div>
+
                         <button
-                            disabled={disabled}
+                            disabled={!captchaVerified}
                             type="submit"
-                            className={disabled ? 'mt-6 w-full text-white p-1 bg-gray-400' : 'mt-6 w-full text-white p-1 bg-blue-700'}
+                            className={!captchaVerified ? 'mt-6 w-full text-white p-1 bg-gray-400' : 'mt-6 w-full text-white p-1 bg-blue-700'}
                         >
                             {!loading ? 'Register' :
                                 <div className="flex justify-center">

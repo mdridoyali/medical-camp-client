@@ -36,7 +36,7 @@ const Login = () => {
         toast.error('Invalid email or password', { id: toastId, duration: 3000 })
       });
   };
-console.log(captchaVerified);
+
   const handleCaptcha = (value) => {
     console.log("CAPTCHA value:", value);
     if (value) {
