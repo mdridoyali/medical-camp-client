@@ -2,6 +2,7 @@
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
 import SectionHeading from "../../Components/sectionHeading";
+import { Button } from "@mui/material";
 
 const NewsLetter = () => {
   const handleSubscribe = (e) => {
@@ -57,12 +58,12 @@ const NewsLetter = () => {
             />
           </div>
           <div className="form-control flex-1">
-            <input
-              type="submit"
-              value={"Subscribe"}
-              className="input font-bold cursor-pointer text-xl bg-black text-white input-bordered rounded-full"
-              required
-            />
+            <Button
+              // type="submit"
+              // value={"Subscribe"}
+              // className="input font-bold cursor-pointer text-xl bg-black text-white input-bordered rounded-full"
+              variant="contained"
+            >Subscribe</Button>
           </div>
         </motion.form>
       </div>
