@@ -58,8 +58,8 @@ const Login = () => {
             className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96"
           >
             <div className="mb-1 flex flex-col gap-5">
-              <input name="email" className="border p-1" placeholder="Email" type="email" />
-              <input name="password" className="border p-1" placeholder="Password" type="password" />
+              <input name="email" className="border p-1" placeholder="Email" type="email" required />
+              <input name="password" className="border p-1" placeholder="Password" type="password" required/>
 
               <div className="form-control">
                 <ReCAPTCHA
