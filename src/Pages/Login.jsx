@@ -10,20 +10,19 @@ import { ThreeDots } from "react-loader-spinner";
 import ReCAPTCHA from "react-google-recaptcha";
 
 const Login = () => {
-  const { logInUser } = useAuth()
+  const { logInUser} = useAuth()
   const [loading, setLoading] = useState(false)
   const [captchaVerified, setCaptchaVerified] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
-  const from = location.state?.from?.pathname || '/dashboard'
+  const from = location.state?.from?.pathname || '/'
   const handleLogin = (e) => {
     setLoading(true)
     e.preventDefault();
     const toastId = toast.loading('logging in ...')
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password);
     logInUser(email, password)
       .then((result) => {
         console.log(result.user);

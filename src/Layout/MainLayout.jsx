@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 import { FaHome, FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
+import logo from '../assets/logo.png'
+import man from '../assets/man.png'
 // import Theme from "./Theme";
 
 import { useState } from "react";
@@ -9,9 +11,7 @@ import useUser from "../Hooks/useUser";
 
 const MainLayout = ({ children }) => {
   const { user, logOutUser } = useAuth();
-  // console.log(user)
   const [userRole] = useUser()
-  console.log(userRole)
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -50,7 +50,7 @@ const MainLayout = ({ children }) => {
             <div className="flex-1   px-2 md:mx-2">
               <img
                 className="w-8 md:w-14"
-                src={"https://i.ibb.co/NWnH0Jj/Screenshot-7-removebg-preview.png"}
+                src={logo}
               />
               <h1 className="text-transparent text-2xl md:text-5xl font-bold bg-clip-text bg-gradient-to-r from-violet-600 to-amber-500">
                 MediCamp
@@ -142,9 +142,7 @@ const MainLayout = ({ children }) => {
                     ) : (
                       <img
                         className=""
-                        src={
-                          "https://i.ibb.co/hDN4yRb/296-2969961-no-image-user-profile-icon.jpg"
-                        }
+                        src={man}
                       />
                     )}
                   </div>
