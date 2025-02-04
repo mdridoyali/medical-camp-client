@@ -1,4 +1,4 @@
-import React from 'react'
+
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import {
@@ -23,7 +23,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <ThemeProvider>
         <AuthProvider>
           <Toaster />
-          <div className='max-w-[1350px] mx-auto'>
+          <div className='max-w-[1519px] mx-auto'>
             <RouterProvider router={router} />
           </div>
         </AuthProvider>

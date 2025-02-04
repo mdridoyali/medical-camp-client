@@ -33,7 +33,7 @@ const PopularCamp = () => {
     return (
         <div className=" mb-10">
             <SectionHeading heading={'Popular Camps'} ></SectionHeading>
-            <div data-aos="fade-down" className="grid md:grid-cols-2 lg:grid-cols-3 mx-auto  p-3 md:mx-10 gap-5">
+            <div data-aos="fade-down" className="grid md:grid-cols-2 lg:grid-cols-3 mx-auto  md:mx-10 gap-5 md:gap-10">
                 {
                     camps.map((item, idx) => (
                         <CardActionArea
@@ -42,6 +42,7 @@ const PopularCamp = () => {
                                 sx={{ height: 300 }}
                                 image={item.image}
                                 title="green iguana"
+                                
 
                             />
                             <CardContent>
