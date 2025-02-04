@@ -8,7 +8,7 @@ import { Helmet } from "react-helmet-async";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 // import "@material-tailwind/react/tailwind.css";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import useAuth from "../Hooks/useAuth";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 // import SocialLogin from "../Components/SocialLogin";
@@ -33,7 +33,7 @@ const Register = () => {
 
 
     useEffect(() => {
-        loadCaptchaEnginge(6);
+        loadCaptchaEnginge(4);
     }, []);
 
 
@@ -71,7 +71,7 @@ const Register = () => {
         if (res.data.success) {
             createUser(email, password)
                 .then(() => {
-                    updateUserProfile(name, res.data.data.display_url)
+                    updateUserProfile(name, res.data?.data?.display_url)
                         .then(() => {
                             // create user entry in the database
                             const userInfo = {
@@ -105,6 +105,7 @@ const Register = () => {
         const user_captcha_value = e.target.value;
         if (validateCaptcha(user_captcha_value)) {
             setDisabled(false);
+            // console.log(disabled);
         }
         else {
             setDisabled(true)
