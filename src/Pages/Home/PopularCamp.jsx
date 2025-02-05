@@ -8,7 +8,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import SectionHeading from "../../Components/sectionHeading";
 import Loading from "../../Components/Loading";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { CardActionArea } from '@mui/material';
 import { useEffect } from 'react';
 import Aos from 'aos';
@@ -33,7 +33,7 @@ const PopularCamp = () => {
     return (
         <div className=" mb-10">
             <SectionHeading heading={'Popular Camps'} ></SectionHeading>
-            <div data-aos="fade-down" className="grid md:grid-cols-2 lg:grid-cols-3 mx-auto  md:mx-10 gap-5 md:gap-10">
+            <div data-aos="fade-down" className="grid md:grid-cols-2 lg:grid-cols-3 mx-auto p-3 md:mx-10 gap-5 md:gap-10">
                 {
                     camps.map((item, idx) => (
                         <CardActionArea

@@ -63,7 +63,7 @@ const MainLayout = ({ children }) => {
                   to={"/"}
                   className={({ isActive }) =>
                     isActive
-                      ? "btn  bg-lime-600 btn-sm text-white"
+                      ? "btn  bg-[#1976d2] btn-sm text-white hover:bg-[#3990e6]"
                       : "btn btn-ghost btn-sm "
                   }
                 >
@@ -74,7 +74,7 @@ const MainLayout = ({ children }) => {
                   to={"/available-camp"}
                   className={({ isActive }) =>
                     isActive
-                      ? "btn  bg-lime-600 btn-sm text-white"
+                      ? "btn  bg-[#1976d2] btn-sm text-white hover:bg-[#3990e6]"
                       : "btn btn-ghost btn-sm "
                   }
                 >
@@ -87,7 +87,7 @@ const MainLayout = ({ children }) => {
                   to={"/dashboard/participant-profile"}
                   className={({ isActive }) =>
                     isActive
-                      ? "btn  bg-lime-600 btn-sm text-white"
+                      ? "btn  bg-[#1976d2] btn-sm text-white hover:bg-[#3990e6]"
                       : "btn btn-ghost btn-sm "
                   }
                 >
@@ -100,7 +100,7 @@ const MainLayout = ({ children }) => {
                   to={"/dashboard/organizer-profile"}
                   className={({ isActive }) =>
                     isActive
-                      ? "btn  bg-lime-600 btn-sm text-white"
+                      ? "btn  bg-[#1976d2] btn-sm text-white hover:bg-[#3990e6]"
                       : "btn btn-ghost btn-sm "
                   }
                 >
@@ -112,7 +112,7 @@ const MainLayout = ({ children }) => {
                   to={"/dashboard/health-professional-profile"}
                   className={({ isActive }) =>
                     isActive
-                      ? "btn  bg-lime-600 btn-sm text-white"
+                       ? "btn  bg-[#1976d2] btn-sm text-white hover:bg-[#3990e6]"
                       : "btn btn-ghost btn-sm "
                   }
                 >
@@ -124,7 +124,7 @@ const MainLayout = ({ children }) => {
                   to={"/contact-us"}
                   className={({ isActive }) =>
                     isActive
-                      ? "btn  bg-lime-600 btn-sm text-white"
+                       ? "btn  bg-[#1976d2] btn-sm text-white hover:bg-[#3990e6]"
                       : "btn btn-ghost btn-sm "
                   }
                 >
@@ -166,7 +166,7 @@ const MainLayout = ({ children }) => {
                   <li>
                     {!user && (
                       <Link
-                        className="text-xl rounded-full  btn-active  hover:outline-none btn-ghost  hover:bg-lime-500  hover:text-white "
+                        className="text-xl rounded-full  btn-active  hover:outline-none btn-ghost  "
                         to={"/register"}
                       >
                         Register
@@ -232,7 +232,7 @@ const MainLayout = ({ children }) => {
               to={"/"}
               className={({ isActive }) =>
                 isActive
-                  ? "btn bg-lime-600 rounded-full text-white"
+                  ? "btn  bg-[#1976d2] text-white hover:bg-[#3990e6]"
                   : "btn btn-ghost  btn-active rounded-full "
               }
             >
@@ -244,7 +244,7 @@ const MainLayout = ({ children }) => {
               to={"/available-camp"}
               className={({ isActive }) =>
                 isActive
-                  ? "btn bg-lime-600 rounded-full text-white"
+                  ? "btn  bg-[#1976d2] text-white hover:bg-[#3990e6]"
                   : "btn btn-ghost  btn-active rounded-full "
               }
             >
@@ -256,7 +256,7 @@ const MainLayout = ({ children }) => {
               to={"/dashboard"}
               className={({ isActive }) =>
                 isActive
-                  ? "btn bg-lime-600 rounded-full text-white"
+               ? "btn  bg-[#1976d2] text-white hover:bg-[#3990e6]"
                   : "btn btn-ghost  btn-active rounded-full "
               }
             >
@@ -268,7 +268,7 @@ const MainLayout = ({ children }) => {
               to={"/contact-us"}
               className={({ isActive }) =>
                 isActive
-                  ? "btn bg-lime-600 rounded-full text-white"
+                ? "btn  bg-[#1976d2] text-white hover:bg-[#3990e6]"
                   : "btn btn-ghost  btn-active rounded-full "
               }
             >
