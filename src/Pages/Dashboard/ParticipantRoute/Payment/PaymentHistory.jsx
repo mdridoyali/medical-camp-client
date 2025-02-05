@@ -54,7 +54,7 @@ const PaymentHistory = () => {
                                 <td>{item.scheduleDate}</td>
                                 <td>{item.location}</td>
                                 <td>${item.totalPrice}</td>
-                                <td>{item.paymentStatus}</td>
+                                <td ><p className="bg-green-400 w-fit px-2 py-[2px] rounded-sm ">{item.paymentStatus}</p></td>
                                 <td>{item.confirmationStatus}</td>
                             </tr>
                         ))}

@@ -138,7 +138,7 @@ const CampDetails = () => {
                                 className="border px-1 py-2 flex-1 rounded w-full"
                                 required
                             >
-                                <option disabled>Gender</option>
+                                <option disabled selected>Gender</option>
                                 <option>Male</option>
                                 <option>Female</option>
                                 <option>Custom</option>
@@ -168,15 +168,9 @@ const CampDetails = () => {
                         <div className="flex justify-between mt-7">
 
                             {/* <form method="dialog"> */}
-                            <Button variant="contained" color="primary" type="submit">
+                            <Button method="dialog" variant="contained" color="primary" type="submit">
                                 Submit
                             </Button>
-                            {/* </form> */}
-                            {/* <div className="modal-action"> <form method="dialog">
-                                <button type="button" className="btn btn-outline">
-                                    Cancel
-                                </button>
-                            </form></div> */}
                             <form method="dialog">
                                 {/* if there is a button in form, it will close the modal */}
                                 <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>

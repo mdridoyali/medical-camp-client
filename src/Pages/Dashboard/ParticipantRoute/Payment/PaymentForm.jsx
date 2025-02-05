@@ -46,7 +46,6 @@ const PaymentForm = ({id}) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const toastId = toast.loading('Adding Camp ...')
          
         if (!stripe || !elements) {
             return
@@ -68,6 +67,8 @@ const PaymentForm = ({id}) => {
             setError('')
         }
 
+
+
         // confirm payment
         const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
             payment_method: {
@@ -81,8 +82,10 @@ const PaymentForm = ({id}) => {
         if (confirmError) {
             console.log('confirm error')
         }
+        
         else {
             console.log('paymentIntent', paymentIntent)
+            const toastId = toast.loading('Adding Camp ...')
             if (paymentIntent.status === 'succeeded') {
                 console.log('transaction id', paymentIntent.id)
                 setTransactionId(paymentIntent.id)
@@ -105,6 +108,8 @@ const PaymentForm = ({id}) => {
 
                 const res = await axiosSecure.post('/payments', payment)
                 console.log('payment save', res.data)
+     
+
                 refetch()
                 const updateStatus = await axiosSecure.patch(`/payment/${id}`, {paymentStatus : "paid", confirmationStatus:"pending"})
                 console.log('update Status',updateStatus.data)
@@ -115,7 +120,7 @@ const PaymentForm = ({id}) => {
                 }
 
             }
-        }
+    }
 
     }
 
